@@ -50,7 +50,7 @@ public class DataAccess {
 					System.out.println(symbol + " added to quotes table.");
 				}*/
 
-				String query = "INSERT INTO " + symbol.toLowerCase().replaceAll("\"", "").replaceAll("'", "") + " (symbol, askprice, bidprice, changed) VALUES ('" + symbol.replaceAll("\"", "") + "', '" + Double.parseDouble(askPrice) + "', '" + Double.parseDouble(bidPrice) + "', '" + Double.parseDouble(change) /*+ "', '" + Double.parseDouble(changePercent) + "', '" + Double.parseDouble(open) + "', '" + Double.parseDouble(close)*/ + "')";
+				String query = "INSERT INTO " + symbol.toLowerCase().replaceAll("\"", "").replaceAll("'", "") + " (symbol, askprice, bidprice, changed, changedPercent, open, close) VALUES ('" + symbol.replaceAll("\"", "") + "', '" + Double.parseDouble(askPrice) + "', '" + Double.parseDouble(bidPrice) + "', '" + Double.parseDouble(change) + "', '" + changePercent + "', '" + Double.parseDouble(open) + "', '" + Double.parseDouble(close) + "')";
 				System.out.println(query);
 				Statement st = cn.createStatement();
 				st.executeUpdate(query);
@@ -107,7 +107,7 @@ public class DataAccess {
 					System.out.printf("\n%s table created!", symbol);
 				}*/
 
-				String query = "CREATE TABLE " + symbol.toLowerCase() + " (id int auto_increment PRIMARY KEY, stocktime TIMESTAMP DEFAULT CURRENT_TIMESTAMP, symbol nvarchar(100) NOT NULL, askprice DECIMAL(10,2) NOT NULL, bidprice DECIMAL(10,2) NOT NULL, changed DECIMAL(10,2) NOT NULL DEFAULT 0, changedPercent DECIMAL(10,2) NOT NULL DEFAULT 0, open DECIMAL(10,2) NOT NULL DEFAULT 0, close DECIMAL(10,2) NOT NULL DEFAULT 0);";
+				String query = "CREATE TABLE " + symbol.toLowerCase() + " (id int auto_increment PRIMARY KEY, stocktime TIMESTAMP DEFAULT CURRENT_TIMESTAMP, symbol nvarchar(100) NOT NULL, askprice DECIMAL(10,2) NOT NULL, bidprice DECIMAL(10,2) NOT NULL, changed DECIMAL(10,2) NOT NULL DEFAULT 0, changedPercent nvarchar(100) NOT NULL DEFAULT 0, open DECIMAL(10,2) NOT NULL DEFAULT 0, close DECIMAL(10,2) NOT NULL DEFAULT 0);";
 				System.out.println(query);
 				//symbol, askprice, bidprice, change, changepercent, open, close
 

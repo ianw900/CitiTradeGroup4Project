@@ -30,7 +30,7 @@ public class GetQuotes {
 				StringBuilder url = new StringBuilder("http://finance.yahoo.com/d/quotes.csv?s=");
 
 				url.append(s);
-				url.append("&f=sabc1c0o0p0&e=.csv");
+				url.append("&f=sabc1cop&e=.csv");
 				
 				//symbol, askprice, bidprice, change, changepercent, open, close
 
@@ -48,7 +48,8 @@ public class GetQuotes {
 					String[] fields = inputLine.split(",");
 
 					for(int i = 0; i < fields.length; i++){
-						System.out.print(fields[i].replaceAll("\"", "").replaceAll("N/A", "0") + " | ");
+						fields[i] = fields[i].replaceAll("\"", "").replaceAll("N/A", "0");
+						System.out.print(fields[i] + " | ");
 					} 
 
 					DataAccess.addStockQuote(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6]);
