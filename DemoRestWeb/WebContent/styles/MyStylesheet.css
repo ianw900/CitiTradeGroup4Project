@@ -1,0 +1,16 @@
+body {
+    font-family: arial, sans-serif;
+}
+
+form {
+    margin-bottom: 50px;
+}
+
+label {
+    width: 100px;
+    float: left;
+}
+
+input[type='submit'] {
+    width: 120px;
+}

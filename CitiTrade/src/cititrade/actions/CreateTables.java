@@ -13,7 +13,7 @@ public class CreateTables {
 		symbols = GetStockSymbolsFromCSV.getSymbols();
 		
 		for(String s: symbols){
-			//DataAccess.dropTablesFromStockSymbols(s);
+			DataAccess.dropTablesFromStockSymbols(s);
 			DataAccess.createTablesFromStockSymbols(s);
 		}
 	}

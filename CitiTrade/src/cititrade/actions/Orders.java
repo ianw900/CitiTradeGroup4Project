@@ -5,8 +5,8 @@ import cititrade.ordermanager.OrderManager.OrderResult;
 
 public class Orders {
 	
-	OrderManager.OrderResult order = new OrderResult();
-	
-	order.sellOrder("INT", 56.3, 500);
+	public static void main(String[] args){
+		OrderResult or = OrderManager.getInstance().buyOrder("AAPL", 10.00, 50);
+	}
 
 }
